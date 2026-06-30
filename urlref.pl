@@ -13,6 +13,7 @@ sub usage {
 }
 
 my $getcode;
+my $filename = "links.txt";
 
 GetOptions(
 	"get-code=s" => \$getcode,
@@ -29,14 +30,13 @@ sub encode {
 }
 
 sub addurl {
+	print("enter URL: ");
 	my $url = <STDIN>;
 	chomp $url;
 	my $code = encode($url);
 
 	if (!length $url == 0) {
 		print("code is: $code\n");
-
-		my $filename = "links.txt";
 
 		open(my $fh, ">>", "$filename") or die "could not open $filename: $!";
 		print $fh "$code $url\n";
@@ -49,8 +49,6 @@ sub addurl {
 }
 
 if ($getcode) {
-	my $filename = "links.txt";
-
 	open(my $fh, "<", "$filename") or die "could not open $filename: $!";
 	while(my $line = <$fh>) {
 		if($line =~ /^$getcode\s/) {

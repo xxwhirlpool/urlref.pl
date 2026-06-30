@@ -10,7 +10,7 @@ run `urlref.pl` without any arguments to bookmark a URL. the script accepts this
 
 to find a URL with a code, use the `--get-code` argument. for example:
 
-```pl
+```bash
 ./urlref --get-code AKB48
 ```
 
