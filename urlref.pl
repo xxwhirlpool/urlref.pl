@@ -18,7 +18,7 @@ my $filename = "links.txt";
 GetOptions(
 	"get-code=s" => \$getcode,
 	"help" => \&usage,
-) or die "\nif you want to get a URL, supply a code: --get-code [CODE]\n";
+) or die("\nif you want to get a URL, supply a code: --get-code [CODE]\n");
 
 sub encode {
 	my @chars = ("A".."Z","0".."9","_");
@@ -38,7 +38,7 @@ sub addurl {
 	if (!length $url == 0) {
 		print("code is: $code\n");
 
-		open(my $fh, ">>", "$filename") or die "could not open $filename: $!";
+		open(my $fh, ">>", "$filename") or die("could not open $filename: $!");
 		print $fh "$code $url\n";
 		close $fh;
 
@@ -49,7 +49,7 @@ sub addurl {
 }
 
 if ($getcode) {
-	open(my $fh, "<", "$filename") or die "could not open $filename: $!";
+	open(my $fh, "<", "$filename") or die("could not open $filename: $!");
 	while(my $line = <$fh>) {
 		if($line =~ /^$getcode\s/) {
 			print("found: $line");
