@@ -6,7 +6,9 @@ the script takes a URL and saves it in a file with a generated 5-character alpha
 
 ## usage
 
-run `urlref.pl` without any arguments to bookmark a URL. the script accepts this through `STDIN`, and will output the code attached to the URL. both the code and the URL are saved on the same line (separated by a space) in `links.txt` in the same directory as the script.
+run `urlref.pl` without any arguments to bookmark a URL. the script accepts this through `STDIN`, and will output the code attached to the URL. both the code and the URL are saved on the same line (separated by a space) in `links.txt`.
+
+`links.txt` is stored in `$HOME/.local/share/urlref` by default. to change this, edit `urlref.pl` and change the `$dir` variable to the desired path (not including the `links.txt` filename)
 
 to find a URL with a code, use the `--get-code` argument. for example:
 
